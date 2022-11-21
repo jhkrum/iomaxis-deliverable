@@ -1,5 +1,5 @@
-const net = require("net");
-const fs = require("fs");
+const net = require("net")
+const fs = require("fs")
 
 const customAddr = {
     "ip" : process.argv[2],
@@ -7,7 +7,8 @@ const customAddr = {
 }
 
 let istream = fs.createReadStream("./client-path/Take_Home_Exerecise_4.pdf")
-let socket = new net.Socket();
+let socket = new net.Socket()
+socket.pipe(process.stdout)
 
 
 // Default to connecting on port localhost:8000, but can be overriden with custom ip and port
@@ -29,6 +30,7 @@ if(customAddr.port && customAddr.ip){
             }
         })
         istream.on("end", function() {
+            istream.close()
             socket.end()
         })
     })

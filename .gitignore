@@ -105,4 +105,4 @@ dist
 
 # Any files in server-path
 # Allow for local testing without risk of commit
-src/server-path/Take_Home_Exerecise_4.pdf
+src/server-path/*

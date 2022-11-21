@@ -12,8 +12,14 @@ server = net.createServer(socket => {
     socket.on('data', chunk => {
         ostream.write(chunk)
     })
+
+    socket.on('error', err => {
+        socket.write("\rThere was an error uploading the file. See more details below:")
+        socket.write(`\r${err}`)
+    })
+
     socket.on('end', () => {
-        socket.write("File successfully transfered!")
+        socket.write("\rFile successfully transfered!")
     })
 })
 

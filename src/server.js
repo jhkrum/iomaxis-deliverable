@@ -6,7 +6,8 @@ const customAddr = {
     "port" : process.argv[3]
 }
 
-let ostream = fs.createWriteStream("./server-path/Take_Home_Exerecise_4.pdf")
+
+let ostream = fs.createWriteStream(`./server-path/test.txt`)
 
 server = net.createServer(socket => {
     socket.on('data', chunk => {
